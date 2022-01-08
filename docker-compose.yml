@@ -1,0 +1,18 @@
+version: '2'
+services:
+  pgbadger:
+    ports: 
+      - "10000:10000"
+    image: registry.developers.crunchydata.com/crunchydata/crunchy-pgbadger:centos8-13.5-4.7.4
+    environment:
+      - BADGER_TARGET=test
+
+    # build: .
+    # command: ["pgbadger", "/pgdata/000000.log"]
+    # container_name: pgbadger
+    # environment:
+    #   PGBADGER_DATA: "/pgdata"
+
+    volumes:
+      # - "./pg_log:/test/postgresql"
+      - "./data:/pgdata/test/pg_log/"
